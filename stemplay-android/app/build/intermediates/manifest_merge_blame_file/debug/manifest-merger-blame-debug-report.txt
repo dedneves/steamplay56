@@ -1,0 +1,224 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.stemplay.library"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:4:5-67
+11-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:4:22-64
+12    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+12-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:5:5-76
+12-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:5:22-73
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:6:5-79
+13-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:6:22-76
+14    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+14-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:7:5-86
+14-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:7:22-83
+15    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+15-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:8:5-77
+15-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:8:22-74
+16    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+16-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:9:5-89
+16-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:9:22-86
+17    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+17-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:10:5-77
+17-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:10:22-74
+18    <uses-permission android:name="android.permission.CAMERA" /> <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
+18-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:22:5-65
+18-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:22:22-62
+19    <uses-feature
+19-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:25:5-27:36
+20        android:name="android.hardware.camera"
+20-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:26:9-47
+21        android:required="false" />
+21-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:27:9-33
+22    <uses-feature
+22-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:28:5-30:36
+23        android:name="android.hardware.camera.front"
+23-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:29:9-53
+24        android:required="false" /> <!-- TODO replace above two with next line after Android 4.2 -->
+24-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:30:9-33
+25    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
+26    <uses-feature
+26-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:33:5-35:36
+27        android:name="android.hardware.camera.autofocus"
+27-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:34:9-57
+28        android:required="false" />
+28-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:35:9-33
+29    <uses-feature
+29-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:36:5-38:36
+30        android:name="android.hardware.camera.flash"
+30-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:37:9-53
+31        android:required="false" />
+31-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:38:9-33
+32    <uses-feature
+32-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:39:5-41:36
+33        android:name="android.hardware.screen.landscape"
+33-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:40:9-57
+34        android:required="false" />
+34-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:41:9-33
+35    <uses-feature
+35-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:42:5-44:36
+36        android:name="android.hardware.wifi"
+36-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:43:9-45
+37        android:required="false" />
+37-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:44:9-33
+38
+39    <permission
+39-->[androidx.core:core:1.9.0] C:\Users\sonia\.gradle\caches\transforms-3\f0f4ee7c3b88100b2d2cd4b05ab423cd\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+40        android:name="com.stemplay.library.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+40-->[androidx.core:core:1.9.0] C:\Users\sonia\.gradle\caches\transforms-3\f0f4ee7c3b88100b2d2cd4b05ab423cd\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+41        android:protectionLevel="signature" />
+41-->[androidx.core:core:1.9.0] C:\Users\sonia\.gradle\caches\transforms-3\f0f4ee7c3b88100b2d2cd4b05ab423cd\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+42
+43    <uses-permission android:name="com.stemplay.library.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+43-->[androidx.core:core:1.9.0] C:\Users\sonia\.gradle\caches\transforms-3\f0f4ee7c3b88100b2d2cd4b05ab423cd\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+43-->[androidx.core:core:1.9.0] C:\Users\sonia\.gradle\caches\transforms-3\f0f4ee7c3b88100b2d2cd4b05ab423cd\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+44
+45    <application
+45-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:12:5-41:19
+46        android:allowBackup="true"
+46-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:13:9-35
+47        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+47-->[androidx.core:core:1.9.0] C:\Users\sonia\.gradle\caches\transforms-3\f0f4ee7c3b88100b2d2cd4b05ab423cd\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+48        android:debuggable="true"
+49        android:extractNativeLibs="false"
+50        android:icon="@mipmap/ic_launcher"
+50-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:14:9-43
+51        android:label="@string/app_name"
+51-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:15:9-41
+52        android:networkSecurityConfig="@xml/network_security_config"
+52-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:19:9-69
+53        android:supportsRtl="true"
+53-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:16:9-35
+54        android:theme="@style/Theme.StemPlay"
+54-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:17:9-46
+55        android:usesCleartextTraffic="true" >
+55-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:18:9-44
+56        <activity
+56-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:21:9-30:20
+57            android:name="com.stemplay.library.MainActivity"
+57-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:22:13-41
+58            android:exported="true"
+58-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:23:13-36
+59            android:screenOrientation="portrait"
+59-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:24:13-49
+60            android:windowSoftInputMode="adjustResize" >
+60-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:25:13-55
+61            <intent-filter>
+61-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:26:13-29:29
+62                <action android:name="android.intent.action.MAIN" />
+62-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:27:17-69
+62-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:27:25-66
+63
+64                <category android:name="android.intent.category.LAUNCHER" />
+64-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:28:17-77
+64-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:28:27-74
+65            </intent-filter>
+66        </activity>
+67
+68        <service
+68-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:32:9-39:19
+69            android:name="com.stemplay.library.ServerService"
+69-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:33:13-42
+70            android:exported="false"
+70-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:34:13-37
+71            android:foregroundServiceType="specialUse" >
+71-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:35:13-55
+72            <meta-data
+72-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:36:13-38:61
+73                android:name="android.app.PROPERTY_SPECIAL_USE_FDSUBTYPE"
+73-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:37:17-74
+74                android:value="local-library-http-server" />
+74-->C:\novo projeto leagal\stemplay23-main\stemplay23-main\stemplay-android\app\src\main\AndroidManifest.xml:38:17-58
+75        </service>
+76
+77        <activity
+77-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:47:9-53:63
+78            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+78-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:48:13-74
+79            android:clearTaskOnLaunch="true"
+79-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:49:13-45
+80            android:screenOrientation="sensorLandscape"
+80-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:50:13-56
+81            android:stateNotNeeded="true"
+81-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:51:13-42
+82            android:theme="@style/zxing_CaptureTheme"
+82-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:52:13-54
+83            android:windowSoftInputMode="stateAlwaysHidden" />
+83-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\sonia\.gradle\caches\transforms-3\1d8bc3283fbc1d7d0231ee9c374b8288\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:53:13-60
+84
+85        <provider
+85-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sonia\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+86            android:name="androidx.startup.InitializationProvider"
+86-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sonia\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+87            android:authorities="com.stemplay.library.androidx-startup"
+87-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sonia\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+88            android:exported="false" >
+88-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sonia\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+89            <meta-data
+89-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sonia\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+90                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+90-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sonia\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+91                android:value="androidx.startup" />
+91-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sonia\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+92            <meta-data
+92-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\sonia\.gradle\caches\transforms-3\d1c1e0b187f385ec39da9225d1799ef7\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+93                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+93-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\sonia\.gradle\caches\transforms-3\d1c1e0b187f385ec39da9225d1799ef7\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+94                android:value="androidx.startup" />
+94-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\sonia\.gradle\caches\transforms-3\d1c1e0b187f385ec39da9225d1799ef7\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+95            <meta-data
+95-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+96                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+96-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+97                android:value="androidx.startup" />
+97-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+98        </provider>
+99
+100        <receiver
+100-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+101            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+101-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+102            android:directBootAware="false"
+102-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+103            android:enabled="true"
+103-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+104            android:exported="true"
+104-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+105            android:permission="android.permission.DUMP" >
+105-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+106            <intent-filter>
+106-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+107                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+107-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+107-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+108            </intent-filter>
+109            <intent-filter>
+109-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+110                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+110-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+110-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+111            </intent-filter>
+112            <intent-filter>
+112-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+113                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+113-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+113-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+114            </intent-filter>
+115            <intent-filter>
+115-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+116                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+116-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+116-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sonia\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+117            </intent-filter>
+118        </receiver>
+119    </application>
+120
+121</manifest>

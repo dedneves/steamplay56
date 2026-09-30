@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="dark_bg">#FF0A0A1A</color>
+    <color name="dark_border">#FF2A2A5E</color>
+    <color name="dark_card">#FF1A1A3E</color>
+    <color name="dark_surface">#FF12122A</color>
+    <color name="dark_text">#FFF0F0FF</color>
+    <color name="dark_text2">#FF8888AA</color>
+    <color name="pink_accent">#FFFD79A8</color>
+    <color name="purple_500">#FF6C5CE7</color>
+    <color name="purple_700">#FF5A4BD1</color>
+    <color name="red_block">#FFFF6B6B</color>
+    <color name="status_offline">#FFFF5252</color>
+    <color name="status_online">#FF00E676</color>
+    <color name="teal_accent">#FF00CEC9</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="yellow_warn">#FFFDCB6E</color>
+    <string name="app_name">StemPlay</string>
+    <string name="ip_blocked">IP bloqueado</string>
+    <string name="ip_unblocked">IP desbloqueado</string>
+    <string name="link_copied">Link copiado!</string>
+    <string name="no_visitors">Nenhum visitante conectado</string>
+    <string name="server_started">Servidor iniciado</string>
+    <string name="server_stopped">Servidor parado</string>
+    <string name="visitors_connected">%d conectados</string>
+    <style name="Theme.StemPlay" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorSecondary">@color/pink_accent</item>
+        <item name="android:statusBarColor">@color/dark_bg</item>
+        <item name="android:navigationBarColor">@color/dark_bg</item>
+        <item name="android:windowBackground">@color/dark_bg</item>
+    </style>
+</resources>

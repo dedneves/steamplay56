@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">StemPlay</string>
+    <string name="server_stopped">Servidor parado</string>
+    <string name="server_started">Servidor iniciado</string>
+    <string name="ip_blocked">IP bloqueado</string>
+    <string name="ip_unblocked">IP desbloqueado</string>
+    <string name="link_copied">Link copiado!</string>
+    <string name="no_visitors">Nenhum visitante conectado</string>
+    <string name="visitors_connected">%d conectados</string>
+</resources>

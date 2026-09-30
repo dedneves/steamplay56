@@ -1,0 +1,54 @@
+[
+    {
+        "merged": "com.stemplay.library.app-merged_res-33:/drawable_ic_share.xml.flat",
+        "source": "com.stemplay.library.app-main-35:/drawable/ic_share.xml"
+    },
+    {
+        "merged": "com.stemplay.library.app-merged_res-33:/layout_item_blocked.xml.flat",
+        "source": "com.stemplay.library.app-main-35:/layout/item_blocked.xml"
+    },
+    {
+        "merged": "com.stemplay.library.app-merged_res-33:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.stemplay.library.app-main-35:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.stemplay.library.app-merged_res-33:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.stemplay.library.app-main-35:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.stemplay.library.app-merged_res-33:/layout_activity_main.xml.flat",
+        "source": "com.stemplay.library.app-main-35:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.stemplay.library.app-merged_res-33:/drawable_circle_dot.xml.flat",
+        "source": "com.stemplay.library.app-main-35:/drawable/circle_dot.xml"
+    },
+    {
+        "merged": "com.stemplay.library.app-merged_res-33:/layout_item_visitor.xml.flat",
+        "source": "com.stemplay.library.app-main-35:/layout/item_visitor.xml"
+    },
+    {
+        "merged": "com.stemplay.library.app-merged_res-33:/drawable_ic_copy.xml.flat",
+        "source": "com.stemplay.library.app-main-35:/drawable/ic_copy.xml"
+    },
+    {
+        "merged": "com.stemplay.library.app-merged_res-33:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.stemplay.library.app-main-35:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.stemplay.library.app-merged_res-33:/drawable_count_background.xml.flat",
+        "source": "com.stemplay.library.app-main-35:/drawable/count_background.xml"
+    },
+    {
+        "merged": "com.stemplay.library.app-merged_res-33:/drawable_url_background.xml.flat",
+        "source": "com.stemplay.library.app-main-35:/drawable/url_background.xml"
+    },
+    {
+        "merged": "com.stemplay.library.app-merged_res-33:/drawable_circle_dot_green.xml.flat",
+        "source": "com.stemplay.library.app-main-35:/drawable/circle_dot_green.xml"
+    },
+    {
+        "merged": "com.stemplay.library.app-merged_res-33:/xml_network_security_config.xml.flat",
+        "source": "com.stemplay.library.app-main-35:/xml/network_security_config.xml"
+    }
+]
