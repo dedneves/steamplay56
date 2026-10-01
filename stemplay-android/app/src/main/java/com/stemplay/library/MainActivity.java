@@ -115,6 +115,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        // servidor pode ter ligado antes do Wi-Fi; recalcula a URL ao voltar pra tela
+        if (bound && serverService != null) {
+            serverService.refreshUrl();
+            updateUI();
+        }
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         stopRefreshTimer();

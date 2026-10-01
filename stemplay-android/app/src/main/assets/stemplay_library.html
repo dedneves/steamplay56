@@ -132,8 +132,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .bs-card h1{color:#ff6b6b;font-size:1.4rem;margin-bottom:.75rem}
 .bs-card p{color:#8888aa;font-size:.9rem;line-height:1.5}
 /* ============ READER "Steamplay 2" ============ */
-#reader{position:fixed;inset:0;z-index:4000;background:#0d0d1f;display:flex;flex-direction:column;color:#f0f0ff;opacity:0;visibility:hidden;transform:translateY(24px) scale(.985);transition:opacity .28s ease,transform .32s var(--ease-out-expo),visibility .28s;pointer-events:none}
-#reader.open{opacity:1;visibility:visible;transform:none;pointer-events:auto}
+#reader{position:fixed;inset:0;z-index:4000;background:#0d0d1f;display:flex;flex-direction:column;color:#f0f0ff;opacity:0;visibility:hidden;transition:opacity .18s ease,visibility .18s;pointer-events:none}
+#reader.open{opacity:1;visibility:visible;pointer-events:auto}
 .rd-head{display:flex;align-items:center;gap:.6rem;padding:.5rem .75rem;background:#12122a;border-bottom:1px solid #2a2a5e;flex-shrink:0}
 .rd-brand{font-weight:900;font-size:1.1rem;background:linear-gradient(135deg,#6c5ce7,#fd79a8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;white-space:nowrap}
 .rd-title{flex:1;font-size:.8rem;color:#a29bfe;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -155,7 +155,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .rd-sw.sel{border-color:#fff;transform:scale(1.15)}
 .rd-size{width:80px;accent-color:#6c5ce7;flex-shrink:0}
 .rd-body{display:flex;flex:1;min-height:0}
-.rd-stage{flex:1;overflow:auto;background:#05050f;display:flex;justify-content:center;align-items:flex-start;padding:12px;touch-action:pan-x pan-y}
+.rd-stage{flex:1;overflow:auto;background:#05050f;display:flex;justify-content:center;align-items:flex-start;padding:12px;touch-action:pan-x pan-y;overscroll-behavior:contain}
 #rWrap{position:relative;flex-shrink:0;box-shadow:0 8px 40px rgba(0,0,0,.6);background:#fff}
 #rPage{display:block;position:relative}
 #rOverlay{display:block;position:absolute;top:0;left:0;z-index:5;touch-action:none}
@@ -177,6 +177,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .nb-resize{position:absolute;right:0;bottom:0;width:18px;height:18px;cursor:nwse-resize;touch-action:none;opacity:.4}
 .nb-resize::after{content:'';position:absolute;right:3px;bottom:3px;width:8px;height:8px;border-right:2px solid #6b5d00;border-bottom:2px solid #6b5d00;border-radius:0 0 3px 0}
 .note-ghost{position:fixed;z-index:9000;width:110px;height:70px;background:#fff8b8;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.5);pointer-events:none;opacity:.85;transform:translate(-50%,-50%) rotate(-3deg)}
+/* celular: menos sombra/animacao pesada = rolagem fluida */
+@media (pointer:coarse){
+.course{animation:none}
+.card{transition:transform .12s}
+#rWrap{box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.toast,.rd-sync{transition-duration:.15s}
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
 </head>
@@ -191,7 +198,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   </div>
 </div>
 <div id="netBanner">Servidor desconectado — tentando reconectar...</div>
-<div id="blockedScreen"><div class="bs-card"><h1>Acesso bloqueado</h1><p>Seu IP foi bloqueado pelo administrador da StemPlay Library. Contate-o para voltar.</p></div></div>
+<div id="blockedScreen"><div class="bs-card"><h1>VIXEeeee...</h1><p>Alguém foi banido pelo visto 😅<br>Se você acha que foi injustiça, chama o administrador da StemPlay Library e pede pra te desbanir.</p></div></div>
 <div class="header">
   <div class="header-top">
     <div style="display:flex;align-items:center;gap:.6rem">
@@ -354,11 +361,13 @@ try{
   };
 }catch(e){}
 
-// --- THUMBNAILS PDF.js ---
+// --- THUMBNAILS PDF.js (no celular fica desligado: cada thumb consome CPU/rede
+// e deixava a rolagem pesada; la aparece o gradiente bonito do placeholder) ---
+const isCoarse=(window.matchMedia&&matchMedia('(pointer:coarse)').matches)||innerWidth<768;
 let thumbCache=new Map();let _thumbObserver=null;
 try{if(typeof pdfjsLib!=='undefined')pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js'}catch(e){}
 async function renderPdfThumb(url,canvas,wrap){if(!url||!canvas||thumbCache.get(url)==='done')return;if(thumbCache.get(url)==='loading')return;thumbCache.set(url,'loading');wrap.classList.add('loading');try{const task=pdfjsLib.getDocument({url:url,rangeChunkSize:65536,withCredentials:false});const pdf=await task.promise;const page=await pdf.getPage(1);const vp=page.getViewport({scale:0.5});const ctx=canvas.getContext('2d');canvas.width=vp.width;canvas.height=vp.height;await page.render({canvasContext:ctx,viewport:vp}).promise;wrap.classList.add('has-thumb');wrap.classList.remove('loading');thumbCache.set(url,'done');try{await pdf.destroy()}catch(e){}}catch(e){thumbCache.delete(url);wrap.classList.remove('loading')}}
-function initThumbs(){const wraps=document.querySelectorAll('.thumb-wrap[data-pdf]');if(!wraps.length)return;if(!('IntersectionObserver' in window)){wraps.forEach(w=>{const c=w.querySelector('.thumb-canvas');const u=w.getAttribute('data-pdf');if(c&&u)renderPdfThumb(u,c,w)});return}if(_thumbObserver)try{_thumbObserver.disconnect()}catch(e){}_thumbObserver=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting){const w=en.target;const c=w.querySelector('.thumb-canvas');const u=w.getAttribute('data-pdf');if(c&&u)renderPdfThumb(u,c,w);_thumbObserver.unobserve(w)}})},{rootMargin:'200px',threshold:0.01});wraps.forEach(w=>_thumbObserver.observe(w))}
+function initThumbs(){if(isCoarse)return;const wraps=document.querySelectorAll('.thumb-wrap[data-pdf]');if(!wraps.length)return;if(!('IntersectionObserver' in window)){wraps.forEach(w=>{const c=w.querySelector('.thumb-canvas');const u=w.getAttribute('data-pdf');if(c&&u)renderPdfThumb(u,c,w)});return}if(_thumbObserver)try{_thumbObserver.disconnect()}catch(e){}_thumbObserver=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting){const w=en.target;const c=w.querySelector('.thumb-canvas');const u=w.getAttribute('data-pdf');if(c&&u)renderPdfThumb(u,c,w);_thumbObserver.unobserve(w)}})},{rootMargin:'200px',threshold:0.01});wraps.forEach(w=>_thumbObserver.observe(w))}
 
 // --- BUSCA / FILTROS / NAV ---
 const _renderPending={value:false};
@@ -547,6 +556,7 @@ async function renderPage(){
   const px=W*H*dpr*dpr;
   if(px>3200000)dpr=Math.max(0.5,dpr*Math.sqrt(3200000/px));
   RD.dprEff=dpr;
+  wrap.style.transform='';
   wrap.style.width=W+'px';wrap.style.height=H+'px';
   cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
   cv.style.width=W+'px';cv.style.height=H+'px';
@@ -565,6 +575,7 @@ async function renderPage(){
   $('rdPageNum').value=RD.page;$('rdPageNum').max=RD.total;
   $('rdTot').textContent='/ '+RD.total;
   setZoomLabel();
+  RD.renderedZoom=RD.zoom;
   redrawStrokes();
   const notaFoco=document.activeElement&&document.activeElement.classList&&document.activeElement.classList.contains('nb-body');
   if(notaFoco&&RD._renderedPage===RD.page)RD.pendingNotes=true;
@@ -839,6 +850,46 @@ document.addEventListener('focusout',e=>{
   if(RD.pendingNotes&&e.target&&e.target.classList&&e.target.classList.contains('nb-body'))
     setTimeout(()=>{if(RD.pendingNotes){RD.pendingNotes=false;renderNotes()}},80);
 },true);
+
+// --- PINCH-TO-ZOOM + toque duplo (celular) ---
+// durante o gesto a pagina e escalada via transform (GPU, imediato);
+// quando o dedo para, o canvas e re-renderizado na resolucao real
+const _stage=$('rStage');
+let _pinch=null,_lastTap=0;
+function previewZoom(){
+  const wrap=$('rWrap');
+  const f=RD.zoom/(RD.renderedZoom||RD.zoom);
+  wrap.style.transformOrigin='top left';
+  wrap.style.transform=(Math.abs(f-1)<0.001)?'':'scale('+f.toFixed(3)+')';
+}
+_stage.addEventListener('touchstart',e=>{
+  if(e.touches.length===2){
+    const a=e.touches[0],b=e.touches[1];
+    _pinch={d0:Math.max(1,Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY)),z0:RD.zoom};
+  }else _pinch=null;
+},{passive:true});
+_stage.addEventListener('touchmove',e=>{
+  if(e.touches.length!==2||!_pinch)return;
+  e.preventDefault();
+  const a=e.touches[0],b=e.touches[1];
+  const d=Math.max(1,Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY));
+  RD.zoom=Math.min(4,Math.max(.3,Math.round(_pinch.z0*(d/_pinch.d0)*100)/100));
+  setZoomLabel();previewZoom();scheduleRenderPage();
+},{passive:false});
+function _pinchEnd(e){if(e.touches.length<2)_pinch=null}
+_stage.addEventListener('touchend',_pinchEnd,{passive:true});
+_stage.addEventListener('touchcancel',_pinchEnd,{passive:true});
+_stage.addEventListener('touchend',e=>{
+  if(_pinch||e.touches.length>0||(e.changedTouches||[]).length!==1)return;
+  if(RD.tool||!RD.pdf)return; // nao confunde desenhar com toque duplo
+  if(e.target&&e.target.closest&&e.target.closest('.note-block'))return; // nao dar zoom ao mexer na nota
+  const now=Date.now();
+  if(now-_lastTap<320){
+    _lastTap=0;
+    RD.zoom=(RD.renderedZoom&&RD.renderedZoom>1.05)?1:2;
+    setZoomLabel();previewZoom();scheduleRenderPage();
+  }else _lastTap=now;
+},{passive:true});
 document.addEventListener('keydown',e=>{
   if(!$('reader').classList.contains('open'))return;
   const inCampo=e.target&&(e.target.tagName==='TEXTAREA'||e.target.tagName==='INPUT');

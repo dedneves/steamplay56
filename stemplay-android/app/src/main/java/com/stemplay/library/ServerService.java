@@ -72,7 +72,7 @@ public class ServerService extends Service {
     public void onCreate() {
         super.onCreate();
         visitorTracker = new VisitorTracker();
-        s3Scanner = new S3Scanner();
+        s3Scanner = new S3Scanner(getFilesDir());
         createNotificationChannel();
         htmlTemplate = loadAsset("stemplay_library.html");
         // Sobe a notificacao imediatamente: sem isso o Android mata/fecha
@@ -132,6 +132,13 @@ public class ServerService extends Service {
     }
 
     public String getUrl() { return localUrl; }
+
+    /** Recalcula o IP exibido sem reiniciar o servidor (chamado no onResume). */
+    public void refreshUrl() {
+        if (isRunning()) {
+            localUrl = "http://" + getLocalIpAddress() + ":" + port;
+        }
+    }
     public int getPort() { return port; }
     public VisitorTracker getVisitorTracker() { return visitorTracker; }
     public Set<String> getBlockedIPs() { return blockedIPs; }
@@ -220,6 +227,28 @@ public class ServerService extends Service {
     }
 
     private String getLocalIpAddress() {
+        // 1) ConnectivityManager: API confiavel em qualquer Android moderno
+        try {
+            android.net.ConnectivityManager cm = (android.net.ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (cm != null) {
+                android.net.Network n = cm.getActiveNetwork();
+                if (n != null) {
+                    android.net.LinkProperties lp = cm.getLinkProperties(n);
+                    if (lp != null) {
+                        for (android.net.LinkAddress la : lp.getLinkAddresses()) {
+                            java.net.InetAddress addr = la.getAddress();
+                            if (addr instanceof java.net.Inet4Address
+                                    && !addr.isLoopbackAddress()
+                                    && !addr.isLinkLocalAddress()) {
+                                return addr.getHostAddress();
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception ignored) {}
+        // 2) WifiManager
         try {
             WifiManager wm = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
             if (wm != null) {
@@ -230,12 +259,15 @@ public class ServerService extends Service {
                 }
             }
         } catch (Exception ignored) {}
+        // 3) varredura de interfaces (sem exigir isUp, que mente em alguns aparelhos)
         try {
             java.util.Enumeration<java.net.NetworkInterface> en = java.net.NetworkInterface.getNetworkInterfaces();
             String fallback = null;
             while (en.hasMoreElements()) {
                 java.net.NetworkInterface ni = en.nextElement();
-                if (!ni.isUp() || ni.isLoopback() || ni.isVirtual()) continue;
+                if (ni.isLoopback() || ni.isVirtual()) continue;
+                String nm = ni.getName().toLowerCase();
+                if (!nm.startsWith("wlan") && !nm.startsWith("eth") && !nm.startsWith("ap") && !nm.startsWith("rndis")) continue;
                 java.util.Enumeration<java.net.InetAddress> eia = ni.getInetAddresses();
                 while (eia.hasMoreElements()) {
                     java.net.InetAddress ia = eia.nextElement();
